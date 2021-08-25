@@ -19,14 +19,13 @@ public class User {
     private String name;
     private String socialSecurityNumber;
 
-    @OneToMany(mappedBy = "account")
+    @OneToMany(mappedBy = "user")
     @JsonBackReference
     private final List<Account> accounts = new ArrayList<>();
 
     public User(String name, String socialSecurityNumber) {
         this.name = name;
         this.socialSecurityNumber = socialSecurityNumber;
-
     }
 
     public User() {

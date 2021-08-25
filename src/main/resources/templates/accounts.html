@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Dina konton</title>
+</head>
+<body>
+<h3 th:text="${headingName}"></h3>
+<h2 th:text="${pageHeading}"></h2>
+
+<div class="allAccounts" th:unless="${#lists.isEmpty(allAccounts)}">
+  <table>
+    <tbody>
+    <tr th:each="account : ${allAccounts}">
+      <td>
+        <a th:href="@{/account/update/{id}(id=${account.getAccountNumber()})}">${account.getAccountNumber}</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!--<div>
+  <form action="#" th:action="@{/user/addAccount}" th:object="${newAccount}" method="get">
+    <label for="number">KontoNummer</label><br>
+    <input type="text" id="number" name="number" value=""><BR>
+    <input type="submit" value="Lägg till">
+  </form>
+</div>-->
+
+</body>
+</html>
