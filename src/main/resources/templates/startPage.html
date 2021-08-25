@@ -7,9 +7,9 @@
 </head>
 <body>
 <h1>Välkommen till banken!</h1>
-<form action="#" th:action="@{/user/myAccounts}" th:object="${user}" method="get">
+<form action="#" th:action="@{/user/allAccounts}" th:object="${pn}" method="get">
   <label for="pn">Personnummer</label>
-  <input type="text" id="pn" name="pn" value=""><br>
+  <input type="text" id="pn" name="socialSecurityNumber" value=""><br>
   <input type="submit" value="Logga in">
 </form>
 <form action="#" th:action="@{/user/newUser}" th:object="${newUser}" method="get">

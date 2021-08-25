@@ -16,8 +16,8 @@ public class AccountController {
 
     @GetMapping("/startPage")
     public String StartPage(Model model){
-        User user = new User();
-        model.addAttribute("user", user);
+        String socialSecurityNumber = new String();
+        model.addAttribute("socialSecurityNumber", socialSecurityNumber);
         return "startPage.html";
     }
 

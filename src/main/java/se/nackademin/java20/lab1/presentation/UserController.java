@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import se.nackademin.java20.lab1.Persistance.UserRepository;
 import se.nackademin.java20.lab1.domain.User;
+import se.nackademin.java20.lab1.domain.UserRepository;
 
 @Controller
 @RequestMapping("/user")
