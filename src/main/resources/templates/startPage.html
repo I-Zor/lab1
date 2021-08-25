@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Start page</title>
+</head>
+<body>
+<h1>Välkommen till banken!</h1>
+<form action="#" th:action="@{/user/myAccounts}" th:object="${user}" method="get">
+  <label for="name">Personnummer</label>
+  <input type="text" id="name" name="name" value=""><br>
+  <input type="submit" value="Logga in">
+</form>
+<form action="#" th:action="@{/user/newUser}" th:object="${newUser}" method="get">
+  <label for="name">Personnummer</label>
+  <input type="text" id="name" name="name" value=""><br>
+  <input type="submit" value="Logga in">
+</form>
+
+</body>
+</html>
