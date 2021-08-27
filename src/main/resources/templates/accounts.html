@@ -13,7 +13,7 @@
     <tbody>
     <tr th:each="account : ${allAccounts}">
       <td>
-        <a th:href="@{/account/update/{id}(id=${account.getAccountNumber()})}">${account.getAccountNumber}</a>
+        <a th:href="@{/account/update/{id}(id=${account.getAccountNumber()})}" th:text="${account.getAccountNumber()}"></a>
       </td>
     </tr>
     </tbody>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Saldo</title>
+</head>
+<body>
+<h3 th:text="${headingName}"></h3>
+<h4 th:text="${saldo}"></h4>
+<form action="#" th:action="@{/account/update/{id}/deposit(id=${headingName})}" th:object="${deposit}" method="post">
+    <input type="text" id="deposit" name="deposit" value=""><br>
+    <input type="submit" value="Deposit">
+</form>
+<form action="#" th:action="@{/account/update/{id}/withdraw(id=${headingName})}" th:object="${withdraw}" method="post">
+    <input type="text" id="withdraw" name="withdraw" value=""><br>
+    <input type="submit" value="Withdraw">
+</form>
+</body>
+</html>

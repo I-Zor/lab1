@@ -6,8 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import se.nackademin.java20.lab1.domain.Account;
 import se.nackademin.java20.lab1.domain.User;
 import se.nackademin.java20.lab1.domain.UserRepository;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/user")
@@ -22,6 +26,7 @@ public class UserController {
         model.addAttribute("allAccounts", user.getAccounts());
         model.addAttribute("pageHeading", "Alla dina konton");
         model.addAttribute("headingName", user.getName());
+
         return "accounts";
     }
 
