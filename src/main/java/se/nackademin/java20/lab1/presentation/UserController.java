@@ -39,8 +39,10 @@ public class UserController {
         User updateUser = userService.findUserBySocialSecurityNumber(socialSecurityNumber);
         Account newAccount = new Account(accountNumber, updateUser);
         updateUser.addAccount(newAccount);
+        System.out.println(updateUser.getAccounts().stream().map(a -> ));
         userService.saveUser(updateUser);
-        return "redirect:allAccounts?socialSecurityNumber="+updateUser.getSocialSecurityNumber();
+        System.out.println(updateUser.getAccounts().toString());
+        return "redirect:/user/allAccounts?socialSecurityNumber="+socialSecurityNumber;
     }
 
     @GetMapping(path="/all")
