@@ -36,12 +36,7 @@ public class UserController {
 
     @PostMapping(path="/addAccount/{socialSecurityNumber}")
     public String addNewAccount(@PathVariable String socialSecurityNumber, @RequestParam(name="number") int accountNumber, Model model){
-        User updateUser = userService.findUserBySocialSecurityNumber(socialSecurityNumber);
-        Account newAccount = new Account(accountNumber, updateUser);
-        updateUser.addAccount(newAccount);
-        System.out.println(updateUser.getAccounts().stream().map(a -> ));
-        userService.saveUser(updateUser);
-        System.out.println(updateUser.getAccounts().toString());
+       userService.addAccountToUser(socialSecurityNumber, accountNumber);
         return "redirect:/user/allAccounts?socialSecurityNumber="+socialSecurityNumber;
     }
 
