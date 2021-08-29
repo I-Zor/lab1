@@ -1,10 +1,12 @@
 package se.nackademin.java20.lab1.service;
 
+import org.springframework.stereotype.Service;
 import se.nackademin.java20.lab1.domain.User;
 import se.nackademin.java20.lab1.domain.UserRepository;
 
 import javax.transaction.Transactional;
 
+@Service
 public class UserService {
 
     private final UserRepository userRepository;
