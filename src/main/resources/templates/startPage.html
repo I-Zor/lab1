@@ -8,15 +8,15 @@
 <body>
 <h1>Välkommen till banken!</h1>
 <form action="#" th:action="@{/user/allAccounts}" th:object="${pn}" method="get">
-  <label for="pn">Personnummer</label>
-  <input type="text" id="pn" name="socialSecurityNumber" value=""><br>
-  <input type="submit" value="Logga in">
+  <label for="pn">Personnummer</label><br>
+  <input type="text" id="pn" name="socialSecurityNumber" value=""><br><br>
+  <input type="submit" value="Logga in"><br><br>
 </form>
-<form action="#" th:action="@{/user/newUser}" th:object="${newUser}" method="get">
-  <label for="name">Namn</label>
+<form action="#" th:action="@{/user/newUser}" th:object="${newUser}" method="post">
+  <label for="name">Namn</label><br>
   <input type="text" id="name" name="name" value=""><br>
-    <label for="newPn"> Personnummer</label>
-    <input type="text" id="newPn" name="name" value=""><br>
+    <label for="newPn"> Personnummer</label><br>
+    <input type="text" id="newPn" name="socialSecurityNumber" value=""><br><br>
   <input type="submit" value="Spara ny användare">
 </form>
 

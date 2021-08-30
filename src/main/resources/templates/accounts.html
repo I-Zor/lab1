@@ -13,19 +13,20 @@
     <tbody>
     <tr th:each="account : ${allAccounts}">
       <td>
-        <a th:href="@{/account/update/{id}(id=${account.getAccountNumber()})}" th:text="${account.getAccountNumber()}"></a>
+        <a th:href="@{/account/update/{id}(id=${account.getAccountNumber()})}" th:text="${account.getAccountNumber}"></a>
       </td>
     </tr>
     </tbody>
   </table>
 </div>
-<!--<div>
-  <form action="#" th:action="@{/user/addAccount}" th:object="${newAccount}" method="get">
+<div>
+  <br>
+  <h4>Skapa nytt konto</h4>
+  <form action="#" th:action="@{/user/addAccount/{socialSecurityNumber}(socialSecurityNumber=${user.getSocialSecurityNumber()})}" th:object="${user}" method="post">
     <label for="number">KontoNummer</label><br>
-    <input type="text" id="number" name="number" value=""><BR>
-    <input type="submit" value="Lägg till">
+    <input type="text" id="number" name="number" value=""><br><br>
+    <input type="submit" value="Lägg till konto">
   </form>
-</div>-->
-
+</div>
 </body>
 </html>
