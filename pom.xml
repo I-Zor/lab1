@@ -79,6 +79,11 @@
 			<version>5.3.9</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.testinfected.hamcrest-matchers</groupId>
+			<artifactId>core-matchers</artifactId>
+			<version>1.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>
