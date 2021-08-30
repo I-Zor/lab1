@@ -1,6 +1,8 @@
 package se.nackademin.java20.lab1.service;
 
 import org.springframework.stereotype.Service;
+import se.nackademin.java20.lab1.domain.Account;
+import se.nackademin.java20.lab1.domain.AccountRepository;
 import se.nackademin.java20.lab1.domain.User;
 import se.nackademin.java20.lab1.domain.UserRepository;
 
@@ -10,18 +12,31 @@ import javax.transaction.Transactional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final AccountRepository accountRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, AccountRepository accountRepository) {
         this.userRepository = userRepository;
+        this.accountRepository = accountRepository;
     }
 
     @Transactional
-    public User saveNewUser(String name, String socialSecurityNumber){
+    public Iterable<User> getAllUsers(){
+        return userRepository.findAll();
+    }
+
+    @Transactional
+    public void addAccountToUser(String socialSecurityNumber, int accountNumber){
+        User user = userRepository.findBySocialSecurityNumber(socialSecurityNumber);
+        accountRepository.save(new Account(accountNumber, user));
+    }
+
+    @Transactional
+    public User addUser(String name, String socialSecurityNumber){
         return userRepository.save(new User(name, socialSecurityNumber));
     }
 
     @Transactional
-    public User findUser(String socialSecurityNumber){
+    public User findUserBySocialSecurityNumber(String socialSecurityNumber){
         return userRepository.findBySocialSecurityNumber(socialSecurityNumber);
     }
 }

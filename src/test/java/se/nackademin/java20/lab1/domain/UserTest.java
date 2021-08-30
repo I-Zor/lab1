@@ -1,29 +1,18 @@
 package se.nackademin.java20.lab1.domain;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
-
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-@ExtendWith(MockitoExtension.class)
+import static org.junit.jupiter.api.Assertions.*;
+
+
 class UserTest {
 
-    @Mock
-    User mockUser;
+    User user = new User("Sara", "830208");
 
     @Test
-    public void shouldGiveRightName(){
-        User user = new User("Ivona", "12345");
-
-        when(mockUser.getName()).thenReturn(user.getName());
-
-        assertEquals(mockUser.getName(), "Ivona");
-
-        verify(mockUser).getName();
-
+    void addAccount() {
+        user.addAccount(new Account(12345,user));
+        assertEquals(user.getAccounts().size(), 1);
+        assertEquals(user.getAccounts().get(0).getAccountNumber(), 12345);
     }
-
 }

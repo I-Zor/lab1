@@ -1,48 +1,42 @@
 package se.nackademin.java20.lab1.domain;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
+    User user = new User("Sara", "830208");
+    Account account;
 
-    Account account = new Account();
-
-    @Test
-    public void balanceShouldBeZeroWhenNewAccountIsMade (){
-
-        double expected = 0;
-        double actual = account.getCurrentBalance();
-
-        assertEquals(expected, actual);
+    @BeforeEach
+    public void newAccount(){
+        account = new Account(12345, user);
     }
+   
 
     @Test
-    public void balanceShouldBe100whenDeposit (){
-
-        double expected = 100;
-        double actual = account.deposit(100);
-
-        assertEquals(expected, actual);
+    public void checkCurrentBalanceWhenOpenAccount(){
+        assertEquals(account.getCurrentBalance(), 0);
     }
-
+    
     @Test
-    public void balanceShouldBe50WhenWithdraw (){
-
-        double expected = 50;
+    public void testDeposit(){
         account.deposit(100);
-        double actual = account.withdraw(50);
-
-        assertEquals(expected, actual);
+        assertEquals(account.getCurrentBalance(), 100);
     }
 
     @Test
-    public void shouldThrowErrorWhenWithdrawBiggerThanBalance (){
-
+    public void testWithdraw(){
         account.deposit(100);
+        account.withdraw(50);
+        assertEquals(account.getCurrentBalance(), 50);
+    }
 
-        assertThrows(IllegalStateException.class, () ->
-                account.withdraw(200));
+    @Test
+    public void withdrawLargerThenBalance(){
+        account.deposit(100);
+        assertThrows(IllegalStateException.class, () -> account.withdraw(200));
     }
 
 }

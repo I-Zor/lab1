@@ -17,11 +17,6 @@ public class AccountService {
     }
 
     @Transactional
-    public Account openAccount (int accountNumber, User user){
-        return accountRepository.save(new Account(accountNumber, user));
-    }
-
-    @Transactional
     public Account findAccount(int accountNumber){
         return accountRepository.findByAccountNumber(accountNumber);
     }
