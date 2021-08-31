@@ -4,10 +4,11 @@ services:
   db:
     image: mysql:8.0.26
     ports:
-      - "3307:3306"
+      - "3307:3307"
     environment:
-      - MYSQL_ROOT_PASSWORD=Iik100410*
+      - MYSQL_ROOT_PASSWORD=FolkeA15Linnea83!
       - MYSQL_DATABASE=bank
+      - MYSQL_TCP_PORT=3307
   lab2:
     image: ivonazoricic/bank
     environment:
